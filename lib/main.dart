@@ -47,12 +47,7 @@ class MainApp extends StatelessWidget {
             ],
           ),
         ),
-        body: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index) {
-            return list();
-          },
-        ),
+        body: Placeholder(),
       ),
     );
   }

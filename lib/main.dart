@@ -4,6 +4,31 @@ void main() {
   runApp(const MainApp());
 }
 
+Widget? list() {
+  //Create a list of cards with a fixed number of items
+  List<Widget> cards = [];
+
+  //Loop through cards, 1-18.
+  for (var i = 0; i < 18; i++) {
+    cards.add(
+      Card(
+        child: Container(
+          width: double.infinity,
+          child: Text(
+            'Item ${i}',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 34,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  //Return cards in a column widget
+  return Column(children: cards);
+}
+
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -12,35 +37,21 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const Text(
-            'Flutter Layout',
-            style: TextStyle(fontSize: 34),
-          ),
-        ),
-        body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          backgroundColor: Colors.blue,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Item 1',
-                style: TextStyle(fontSize: 45),
-              ),
-              Text(
-                'Item 2',
-                style: TextStyle(fontSize: 45),
-              ),
+              FlutterLogo(),
+              Text('Flutter Layout'),
+              Icon(Icons.notification_add),
             ],
           ),
         ),
-        drawer: const Drawer(),
-        floatingActionButton: const FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.notification_add),
-        ),
-        bottomNavigationBar: const BottomAppBar(
-          color: Colors.red,
+        body: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (context, index) {
+            return list();
+          },
         ),
       ),
     );

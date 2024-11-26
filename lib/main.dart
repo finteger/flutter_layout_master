@@ -36,19 +36,25 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              FlutterLogo(),
-              Text('Flutter Layout'),
-              Icon(Icons.notification_add),
-            ],
+          appBar: AppBar(
+            backgroundColor: Colors.blue,
+            title: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FlutterLogo(),
+                Text('Flutter Layout'),
+                Icon(Icons.notification_add),
+              ],
+            ),
           ),
-        ),
-        body: Placeholder(),
-      ),
+          body: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1,
+            ),
+            itemCount: 8,
+            itemBuilder: (BuildContext context, int index) {},
+          )),
     );
   }
 }

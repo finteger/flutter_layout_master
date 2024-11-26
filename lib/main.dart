@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_layout_master/modules/list_body.dart';
 
 void main() {
   runApp(const MainApp());
@@ -36,25 +37,30 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.blue,
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FlutterLogo(),
-                Text('Flutter Layout'),
-                Icon(Icons.notification_add),
-              ],
-            ),
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              FlutterLogo(),
+              Text('Flutter Layout'),
+              Icon(Icons.notification_add),
+            ],
           ),
-          body: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1,
-            ),
-            itemCount: 8,
-            itemBuilder: (BuildContext context, int index) {},
-          )),
+        ),
+        body: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 1,
+            crossAxisSpacing: 4.0,
+            mainAxisSpacing: 4.0,
+          ),
+          itemCount: numbers.length,
+          itemBuilder: (BuildContext context, int index) {
+            return numbers[index];
+          },
+        ),
+      ),
     );
   }
 }

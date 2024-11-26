@@ -13,9 +13,12 @@ List<String> categories = [
 
 List<Widget> numbers = categories.map((category) {
   return Card(
+    color: Colors.red,
     child: Text(category,
+        textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.white,
+          fontSize: 25,
         )),
   );
 }).toList();

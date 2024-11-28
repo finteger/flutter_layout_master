@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-generate() {
+List<String> generate() {
+  List<String> imageList = [];
   for (var i = 1; i < 8; i++) {
-    return 'assets/images/image${i}.jpg';
+    imageList.add('assets/images/image${i}.jpg');
   }
+  return imageList;
 }
 
 List<String> categories = generate();

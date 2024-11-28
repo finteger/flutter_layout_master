@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-List<String> categories = [
-  'Category 1',
-  'Category 2',
-  'Category 3',
-  'Category 4',
-  'Category 5',
-  'Category 6',
-  'Category 7',
-  'Category 8',
-];
+generate() {
+  for (var i = 1; i < 8; i++) {
+    return 'assets/images/image${i}.jpg';
+  }
+}
+
+List<String> categories = generate();
 
 List<Widget> numbers = categories.map((category) {
   return Card(
